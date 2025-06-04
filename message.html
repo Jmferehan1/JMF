@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Message</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Just a few words…</h1>
+  <p id="message-text">Loading...</p>
+  <button id="nextToVideoBtn">Next</button>
+
+  <script>
+    const words = [
+      "If only you could see yourself the way I do… ",
+      "you’d never doubt your worth again.",
+      "You carry a light that softens the world around you.",
+      "You make the world feel like home.",
+      "You are strong.",
+      "You are beautiful.",
+      "You are my everything."
+    ];
+    let i = 0;
+    const text = document.getElementById('message-text');
+
+    function showNext() {
+      if (i < words.length) {
+        text.textContent = words[i++];
+        setTimeout(showNext, 3000);
+      }
+    }
+
+    showNext();
+
+    document.getElementById('nextToVideoBtn').addEventListener('click', () => {
+      window.location.href = 'video.html';
+    });
+  </script>
+</body>
+</html>

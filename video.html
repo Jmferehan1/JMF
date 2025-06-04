@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise Video</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="screen">
+    <h1>Ready ?</h1>
+
+    <button id="playBtn">Play</button>
+    <video id="surpriseVideo" controls class="hidden">
+      <source src="jm.v.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p id="fallbackMsg" class="hidden" style="color:red;">If Video couldn't play? You can download it below.</p>
+
+    <a href="jm.v.mp4" download>
+      <button id="downloadBtn" class="hidden">Download and Watch</button>
+    </a>
+
+    <a href="final.html">
+      <button class="nextBtn">Done</button>
+    </a>
+  </div>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const video = document.getElementById('surpriseVideo');
+    const fallbackMsg = document.getElementById('fallbackMsg');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    playBtn.addEventListener('click', () => {
+      video.classList.remove('hidden');
+      video.play().catch(err => {
+        fallbackMsg.classList.remove('hidden');
+        downloadBtn.classList.remove('hidden');
+        console.error("Playback failed:", err);
+      });
+    });
+  </script>
+</body>
+</html>

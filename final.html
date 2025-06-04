@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Message</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>One Last Thing…</h1>
+  <p id="final-text">Loading...</p>
+  <button onclick="end()">Done</button>
+
+  <script>
+    const words = [
+        "Some people just make life sweeter by being in it  and you're one of them.",
+        "No matter where life takes you, remember someone out there is proud of you.",
+        "You are my heart.",
+        "You are not alone.",
+        "Smile 😊 it's sunnah and I wanna see it always on your face."
+    ];
+    let i = 0;
+    const text = document.getElementById('final-text');
+
+    function showNext() {
+      if (i < words.length) {
+        text.textContent = words[i++];
+        setTimeout(showNext, 4000);
+      }
+    }
+
+    function end() {
+      document.body.innerHTML = `
+        <div style="margin-top: 25vh; font-size: 2rem; color: #6f42c1;">
+          <p>You made it to the end 💖</p>
+          <p>I hope this made your day brighter ☀️</p>
+        </div>
+      `;
+    }
+
+    showNext();
+  </script>
+</body>
+</html>
